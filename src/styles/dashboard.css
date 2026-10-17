@@ -1,0 +1,165 @@
+/* Leadgenix dashboard styling — plain CSS matching the widget markup. */
+
+:root {
+  --bg: #f1f5f9;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --accent: #2563eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.app-shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.app-header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.75rem;
+}
+
+.app-subtitle {
+  margin: 0 0 1.75rem;
+  color: var(--text-muted);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 720px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .app-header h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ---- Widget chrome ---------------------------------------------------- */
+
+.widget {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+
+.widget-header h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.widget-subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.widget-meta {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.widget-body {
+  margin-top: 1rem;
+}
+
+.widget-loading {
+  margin: 0;
+  padding: 1.5rem 0;
+  color: var(--text-muted);
+}
+
+.widget-error {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #991b1b;
+  border-radius: 8px;
+  padding: 0.85rem;
+}
+
+.widget-error p {
+  margin: 0 0 0.6rem;
+}
+
+.widget-empty {
+  margin: 0;
+  padding: 1.25rem 0;
+  color: var(--text-muted);
+}
+
+.widget-button {
+  margin-top: 0.85rem;
+  padding: 0.5rem 0.95rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.widget-button:hover,
+.widget-button:focus-visible {
+  border-color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---- Source breakdown chart ------------------------------------------- */
+
+.source-breakdown-chart {
+  margin: 0;
+  width: 100%;
+  /* Chart.js reads the canvas's parent box to size the chart. */
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.source-breakdown-chart canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.source-breakdown-details {
+  margin: 0.65rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.source-breakdown-details li {
+  margin: 0.2rem 0;
+}
+
+/* ---- Accessibility helpers -------------------------------------------- */
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
